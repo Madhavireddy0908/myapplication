@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script>
+        // Function to add characters to the display
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        // Function to clear the display
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        // Function to evaluate the expression and display the result
+        function calculate() {
+            var display = document.getElementById('display');
+            try {
+                display.value = eval(display.value);
+            } catch (e) {
+                display.value = 'Error';
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Background color for the entire page */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            width: 400px; /* Adjust width as needed */
+            text-align: center;
+            border: 2px solid #2980b9; /* Border color */
+            border-radius: 10px;
+            background-color: #ecf0f1; /* Calculator background color */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+            padding: 20px;
+        }
+
+        .calculator #display {
+            width: calc(100% - 50px); /* Display width with padding */
+            padding: 10px;
+            font-size: 32px; /* Font size of the display */
+            margin-bottom: 20px;
+            border: 1px solid #bdc3c7; /* Display border color */
+            background-color: #fff; /* Display background color */
+            border-radius: 5px;
+            box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1); /* Inner shadow */
+        }
+
+        .calculator .keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        .calculator button {
+            padding: 20px;
+            font-size: 24px; /* Font size of the buttons */
+            border: none;
+            cursor: pointer;
+            background-color: #7a9cd6; /* Button background color */
+            color: white; /* Button text color */
+            border-radius: 5px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2); /* Button box shadow */
+            transition: background-color 0.3s ease;
+        }
+
+        .calculator button:hover {
+            background-color: #27ae60; /* Button hover background color */
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+        <div class="keys">
+            <button onclick="addToDisplay('7')">7</button>
+            <button onclick="addToDisplay('8')">8</button>
+            <button onclick="addToDisplay('9')">9</button>
+            <button onclick="addToDisplay('+')">+</button>
+            <button onclick="addToDisplay('4')">4</button>
+            <button onclick="addToDisplay('5')">5</button>
+            <button onclick="addToDisplay('6')">6</button>
+            <button onclick="addToDisplay('-')">-</button>
+            <button onclick="addToDisplay('1')">1</button>
+            <button onclick="addToDisplay('2')">2</button>
+            <button onclick="addToDisplay('3')">3</button>
+            <button onclick="addToDisplay('*')">*</button>
+            <button onclick="addToDisplay('0')">0</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="addToDisplay('/')">/</button>
+        </div>
+    </div>    
+</body>
+</html>
